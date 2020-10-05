@@ -6,17 +6,17 @@
 
 #include "gtest.h"
 
-#ifdef __cplusplus
-extern "C"
-{
-#endif
+//#ifdef __cplusplus
+//extern "C"
+//{
+//#endif
 
 #include "../../src/util/cron.h"
 #include "../../src/util/rmalloc.h"
 
-#ifdef __cplusplus
-}
-#endif
+//#ifdef __cplusplus
+//}
+//#endif
 
 int X = 1;
 

@@ -6,14 +6,14 @@
 
 #include "gtest.h"
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+//#ifdef __cplusplus
+//extern "C" {
+//#endif
 #include "../../src/GraphBLASExt/GxB_Delete.h"
 #include "../../src/util/rmalloc.h"
-#ifdef __cplusplus
-}
-#endif
+//#ifdef __cplusplus
+//}
+//#endif
 
 class GxB_DeleteTest: public ::testing::Test {
   protected:

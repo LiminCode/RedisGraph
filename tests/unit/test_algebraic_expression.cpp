@@ -6,9 +6,9 @@
 
 #include "gtest.h"
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+//#ifdef __cplusplus
+//extern "C" {
+//#endif
 
 #include "assert.h"
 #include "../../src/config.h"
@@ -25,11 +25,10 @@ extern "C" {
 #include "../../src/arithmetic/algebraic_expression/utils.h"
 #include "../../deps/GraphBLAS/Include/GraphBLAS.h"
 
-extern AR_ExpNode **_BuildReturnExpressions(const cypher_astnode_t *ret_clause, AST *ast);
 
-#ifdef __cplusplus
-}
-#endif
+//#ifdef __cplusplus
+//}
+//#endif
 
 QueryGraph *qg;
 
@@ -46,7 +45,7 @@ GrB_Matrix mat_tew;
 GrB_Matrix mat_e;
 rax *_matrices;
 
-RG_Config config; // Global module configuration
+extern RG_Config config; // Global module configuration
 
 const char *query_no_intermidate_return_nodes =
 	"MATCH (p:Person)-[ef:friend]->(f:Person)-[ev:visit]->(c:City)-[ew:war]->(e:City) RETURN p, e";

@@ -6,10 +6,10 @@
 
 #include "gtest.h"
 
-#ifdef __cplusplus
-extern "C"
-{
-#endif
+//#ifdef __cplusplus
+//extern "C"
+//{
+//#endif
 
 #include "../../src/config.h"
 #include "../../src/util/arr.h"
@@ -19,16 +19,16 @@ extern "C"
 #include "../../deps/GraphBLAS/Include/GraphBLAS.h"
 #include "../../src/util/datablock/datablock_iterator.h"
 
-#ifdef __cplusplus
-}
-#endif
+//#ifdef __cplusplus
+//}
+//#endif
 
 // Console text colors for benchmark printing
 #define KGRN "\x1B[32m"
 #define KRED "\x1B[31m"
 #define KNRM "\x1B[0m"
 
-RG_Config config; // Global module configuration
+extern RG_Config config; // Global module configuration
 
 // Encapsulate the essence of an edge.
 typedef struct {

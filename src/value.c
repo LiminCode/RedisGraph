@@ -23,7 +23,7 @@ static inline void _SIString_ToString(SIValue str, char **buf, size_t *bufferLen
 	size_t strLen = strlen(str.stringval);
 	if(*bufferLen - *bytesWritten < strLen) {
 		*bufferLen += strLen;
-		*buf = rm_realloc(*buf, *bufferLen);
+		*buf = (char*)rm_realloc(*buf, *bufferLen);
 	}
 	*bytesWritten += snprintf(*buf + *bytesWritten, *bufferLen, "%s", str.stringval);
 }
@@ -177,21 +177,21 @@ void SIValue_Persist(SIValue *v) {
 	*v = SI_CloneValue(*v);
 }
 
-inline bool SIValue_IsNull(SIValue v) {
+bool SIValue_IsNull(SIValue v) {
 	return v.type == T_NULL;
 }
 
-inline bool SIValue_IsFalse(SIValue v) {
+bool SIValue_IsFalse(SIValue v) {
 	assert(SI_TYPE(v) ==  T_BOOL && "SIValue_IsFalse: Expected boolean");
 	return !v.longval;
 }
 
-inline bool SIValue_IsTrue(SIValue v) {
+bool SIValue_IsTrue(SIValue v) {
 	assert(SI_TYPE(v) ==  T_BOOL && "SIValue_IsTrue: Expected boolean");
 	return v.longval;
 }
 
-inline bool SIValue_IsNullPtr(SIValue *v) {
+bool SIValue_IsNullPtr(SIValue *v) {
 	return v == NULL || v->type == T_NULL;
 }
 
@@ -227,7 +227,7 @@ void SIValue_ToString(SIValue v, char **buf, size_t *bufferLen, size_t *bytesWri
 	// checkt for enough space
 	if(*bufferLen - *bytesWritten < 64) {
 		*bufferLen += 64;
-		*buf = rm_realloc(*buf, sizeof(char) * *bufferLen);
+		*buf = (char*)rm_realloc(*buf, sizeof(char) * *bufferLen);
 	}
 
 	switch(v.type) {
@@ -244,10 +244,10 @@ void SIValue_ToString(SIValue v, char **buf, size_t *bufferLen, size_t *bytesWri
 		*bytesWritten += snprintf(*buf + *bytesWritten, *bufferLen, "%f", v.doubleval);
 		break;
 	case T_NODE:
-		Node_ToString(v.ptrval, buf, bufferLen, bytesWritten, ENTITY_ID);
+		Node_ToString((const Node*)v.ptrval, buf, bufferLen, bytesWritten, ENTITY_ID);
 		break;
 	case T_EDGE:
-		Edge_ToString(v.ptrval, buf, bufferLen, bytesWritten, ENTITY_ID);
+		Edge_ToString((const Edge*)v.ptrval, buf, bufferLen, bytesWritten, ENTITY_ID);
 		break;
 	case T_ARRAY:
 		SIArray_ToString(v, buf, bufferLen, bytesWritten);

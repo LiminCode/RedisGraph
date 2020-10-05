@@ -16,7 +16,7 @@ endif
 
 # Default CFLAGS
 CFLAGS = \
-	-Wall -Wno-unused-function -Wno-unused-variable -Wno-unused-result \
+	-Wall -Wno-unused-function -Wno-unused-variable -Wno-unused-result -fpermissive -Wno-narrowing \
 	-fPIC -fcommon -fopenmp \
 	-D_GNU_SOURCE -DREDIS_MODULE_TARGET -DREDISMODULE_EXPERIMENTAL_API -DXXH_STATIC_LINKING_ONLY
 CFLAGS += $(DEBUGFLAGS)
@@ -105,7 +105,8 @@ LIBCYPHER-PARSER=../deps/libcypher-parser/lib/src/.libs/libcypher-parser.a
 LIBS=$(RAX) $(GRAPHBLAS) $(REDISEARCH) $(LIBXXHASH) $(LIBCYPHER-PARSER)
 MODULE= $(LIBS) $(CC_OBJECTS)
 
-REDISGRAPH_CC=$(QUIET_CC)$(CC)
+REDISGRAPH_CC=$(QUIET_CC)g++
+# REDISGRAPH_CC=$(QUIET_CC)$(CC)
 
 CCCOLOR="\033[34m"
 SRCCOLOR="\033[33m"

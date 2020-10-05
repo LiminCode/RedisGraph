@@ -11,11 +11,11 @@
 // Functions declerations - implemented in graph.c
 void Graph_FormConnection(Graph *g, NodeID src, NodeID dest, EdgeID edge_id, int r);
 
-inline void Serializer_Graph_MarkEdgeDeleted(Graph *g, EdgeID id) {
+void Serializer_Graph_MarkEdgeDeleted(Graph *g, EdgeID id) {
 	DataBlock_MarkAsDeletedOutOfOrder(g->edges, id);
 }
 
-inline void Serializer_Graph_MarkNodeDeleted(Graph *g, NodeID id) {
+void Serializer_Graph_MarkNodeDeleted(Graph *g, NodeID id) {
 	DataBlock_MarkAsDeletedOutOfOrder(g->nodes, id);
 }
 

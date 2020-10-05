@@ -113,7 +113,7 @@ static int siptlw(int c) {
         v2 = ROTL(v2, 32);                                                     \
     } while (0)
 
-static uint64_t siphash(const uint8_t *in, const size_t inlen, const uint8_t *k) {
+uint64_t siphash(const uint8_t *in, const size_t inlen, const uint8_t *k) {
 #ifndef UNALIGNED_LE_CPU
     uint64_t hash;
     uint8_t *out = (uint8_t*) &hash;
@@ -172,7 +172,7 @@ static uint64_t siphash(const uint8_t *in, const size_t inlen, const uint8_t *k)
 #endif
 }
 
-static uint64_t siphash_nocase(const uint8_t *in, const size_t inlen, const uint8_t *k)
+uint64_t siphash_nocase(const uint8_t *in, const size_t inlen, const uint8_t *k)
 {
 #ifndef UNALIGNED_LE_CPU
     uint64_t hash;

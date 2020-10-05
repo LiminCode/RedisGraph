@@ -64,7 +64,7 @@ static void _OpBase_RemoveChild(OpBase *parent, OpBase *child) {
 	child->parent = NULL;
 }
 
-inline void ExecutionPlan_AddOp(OpBase *parent, OpBase *newOp) {
+void ExecutionPlan_AddOp(OpBase *parent, OpBase *newOp) {
 	_OpBase_AddChild(parent, newOp);
 }
 
@@ -100,7 +100,7 @@ void ExecutionPlan_NewRoot(OpBase *old_root, OpBase *new_root) {
 	_OpBase_AddChild(tail, old_root);
 }
 
-inline void ExecutionPlan_UpdateRoot(ExecutionPlan *plan, OpBase *new_root) {
+void ExecutionPlan_UpdateRoot(ExecutionPlan *plan, OpBase *new_root) {
 	if(plan->root) ExecutionPlan_NewRoot(plan->root, new_root);
 	plan->root = new_root;
 }

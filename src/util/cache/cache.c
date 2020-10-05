@@ -40,7 +40,7 @@ Cache *Cache_New(uint size, CacheItemFreeFunc freeCB) {
 	return cache;
 }
 
-inline void *Cache_GetValue(const Cache *cache, const char *key) {
+void *Cache_GetValue(const Cache *cache, const char *key) {
 	CacheListNode *elem = HT_dictFetchValue(cache->lookup, key);
 	if(elem == NULL) return NULL;
 

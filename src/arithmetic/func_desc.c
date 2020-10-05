@@ -66,7 +66,7 @@ bool AR_FuncExists(const char *func_name) {
 	return (AR_GetFunc(func_name) != NULL);
 }
 
-inline void AR_SetPrivateDataRoutines(AR_FuncDesc *func_desc, AR_Func_Free bfree,
+void AR_SetPrivateDataRoutines(AR_FuncDesc *func_desc, AR_Func_Free bfree,
 									  AR_Func_Clone bclone) {
 	func_desc->bfree = bfree;
 	func_desc->bclone = bclone;

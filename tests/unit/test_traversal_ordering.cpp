@@ -6,9 +6,9 @@
 
 #include "gtest.h"
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+//#ifdef __cplusplus
+//extern "C" {
+//#endif
 
 #include "../../src/util/rmalloc.h"
 #include "../../src/query_ctx.h"
@@ -18,9 +18,9 @@ extern "C" {
 #include "../../src/arithmetic/algebraic_expression.h"
 #include "../../src/execution_plan/optimizations/traverse_order.h"
 
-#ifdef __cplusplus
-}
-#endif
+//#ifdef __cplusplus
+//}
+//#endif
 
 class TraversalOrderingTest: public ::testing::Test {
   protected:

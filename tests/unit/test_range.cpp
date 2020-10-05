@@ -6,18 +6,18 @@
 
 #include "gtest.h"
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+//#ifdef __cplusplus
+//extern "C" {
+//#endif
 #include "../../src/util/rmalloc.h"
 #include "../../src/ast/ast_shared.h"
 #include "../../src/util/range/string_range.h"
 #include "../../src/util/range/numeric_range.h"
 #include "../../src/util/range/unsigned_range.h"
 #include <math.h>
-#ifdef __cplusplus
-}
-#endif
+//#ifdef __cplusplus
+//}
+//#endif
 
 class RangeTest: public ::testing::Test {
   protected:

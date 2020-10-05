@@ -1,14 +1,14 @@
 #include "gtest.h"
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+//#ifdef __cplusplus
+//extern "C" {
+//#endif
 #include "../../src/util/rmalloc.h"
 #include "../../src/util/cache/cache.h"
 #include "../../src/execution_plan/execution_plan.h"
-#ifdef __cplusplus
-}
-#endif
+//#ifdef __cplusplus
+//}
+//#endif
 
 class CacheTest:
 	public ::testing::Test {

@@ -6,18 +6,18 @@
 
 #include "gtest.h"
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+//#ifdef __cplusplus
+//extern "C" {
+//#endif
 
 #include <stdio.h>
 #include "../../src/execution_plan/record.h"
 #include "../../src/util/rmalloc.h"
 #include "../../src/value.h"
 
-#ifdef __cplusplus
-}
-#endif
+//#ifdef __cplusplus
+//}
+//#endif
 
 class RecordTest: public ::testing::Test {
   protected:

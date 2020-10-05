@@ -26,7 +26,7 @@ static inline DataBlockItemHeader *DataBlock_GetItemHeader(const DataBlock *data
 	return (DataBlockItemHeader *)block->data + (idx * block->itemSize);
 }
 
-inline void *DataBlock_AllocateItemOutOfOrder(DataBlock *dataBlock, uint64_t idx) {
+void *DataBlock_AllocateItemOutOfOrder(DataBlock *dataBlock, uint64_t idx) {
 	// Check if idx<=data block's current capacity. If needed, allocate additional blocks.
 	DataBlock_Accommodate(dataBlock, idx);
 	DataBlockItemHeader *item_header = DataBlock_GetItemHeader(dataBlock, idx);
@@ -35,7 +35,7 @@ inline void *DataBlock_AllocateItemOutOfOrder(DataBlock *dataBlock, uint64_t idx
 	return ITEM_DATA(item_header);
 }
 
-inline void DataBlock_MarkAsDeletedOutOfOrder(DataBlock *dataBlock, uint64_t idx) {
+void DataBlock_MarkAsDeletedOutOfOrder(DataBlock *dataBlock, uint64_t idx) {
 	// Check if idx<=data block's current capacity. If needed, allocate additional blocks.
 	DataBlock_Accommodate(dataBlock, idx);
 	DataBlockItemHeader *item_header = DataBlock_GetItemHeader(dataBlock, idx);

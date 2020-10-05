@@ -1,7 +1,7 @@
 #include "vector.h"
 #include <stdio.h>
 
-inline int __vector_PushPtr(Vector *v, void *elem) {
+int __vector_PushPtr(Vector *v, void *elem) {
   if (v->top == v->cap) {
     Vector_Resize(v, v->cap ? v->cap * 2 : 1);
   }
@@ -10,7 +10,7 @@ inline int __vector_PushPtr(Vector *v, void *elem) {
   return v->top;
 }
 
-inline int Vector_Get(const Vector *v, size_t pos, void *ptr) {
+int Vector_Get(const Vector *v, size_t pos, void *ptr) {
   // return 0 if pos is out of bounds
   if (pos >= v->top) {
     return 0;
@@ -21,7 +21,7 @@ inline int Vector_Get(const Vector *v, size_t pos, void *ptr) {
 }
 
 /* Get the element at the end of the vector, decreasing the size by one */
-inline int Vector_Pop(Vector *v, void *ptr) {
+int Vector_Pop(Vector *v, void *ptr) {
   if (v->top > 0) {
     if (ptr != NULL) {
       Vector_Get(v, v->top - 1, ptr);
@@ -36,7 +36,7 @@ void* Vector_Data(const Vector *v) {
   return (void*)v->data;
 }
 
-inline int __vector_PutPtr(Vector *v, size_t pos, void *elem) {
+int __vector_PutPtr(Vector *v, size_t pos, void *elem) {
   // resize if pos is out of bounds
   if (pos >= v->cap) {
     Vector_Resize(v, pos + 1);
@@ -84,10 +84,10 @@ void Vector_Free(Vector *v) {
   free(v);
 }
 
-inline int Vector_Size(const Vector *v) { return v->top; }
+int Vector_Size(const Vector *v) { return v->top; }
 
 /* return the actual capacity */
-inline int Vector_Cap(Vector *v) { return v->cap; }
+int Vector_Cap(Vector *v) { return v->cap; }
 
 void Vector_Clear(Vector *v) {
   v->top = 0;

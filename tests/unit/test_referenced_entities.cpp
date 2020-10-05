@@ -6,18 +6,18 @@
 
 #include "gtest.h"
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+//#ifdef __cplusplus
+//extern "C" {
+//#endif
 
 #include <stdio.h>
 #include "../../src/util/rmalloc.h"
 #include "../../src/util/arr.h"
 #include "../../src/ast/ast.h"
 
-#ifdef __cplusplus
-}
-#endif
+//#ifdef __cplusplus
+//}
+//#endif
 
 class TestReferencedEntities: public ::testing::Test {
   protected:

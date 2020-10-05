@@ -49,11 +49,11 @@ int Agg_Finalize(AggCtx *ctx) {
 	return ctx->Finalize(ctx);
 }
 
-inline void *Agg_FuncCtx(AggCtx *ctx) {
+void *Agg_FuncCtx(AggCtx *ctx) {
 	return ctx->fctx;
 }
 
-inline void Agg_SetResult(struct AggCtx *ctx, SIValue v) {
+void Agg_SetResult(struct AggCtx *ctx, SIValue v) {
 	ctx->result = v;
 }
 

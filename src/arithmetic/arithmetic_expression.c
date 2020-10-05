@@ -584,11 +584,11 @@ bool AR_EXP_ContainsFunc(const AR_ExpNode *root, const char *func) {
 	return false;
 }
 
-bool inline AR_EXP_IsConstant(const AR_ExpNode *exp) {
+bool AR_EXP_IsConstant(const AR_ExpNode *exp) {
 	return exp->type == AR_EXP_OPERAND && exp->operand.type == AR_EXP_CONSTANT;
 }
 
-bool inline AR_EXP_IsParameter(const AR_ExpNode *exp) {
+bool AR_EXP_IsParameter(const AR_ExpNode *exp) {
 	return exp->type == AR_EXP_OPERAND && exp->operand.type == AR_EXP_PARAM;
 }
 
@@ -708,7 +708,7 @@ static inline void _AR_EXP_FreeOpInternals(AR_ExpNode *op_node) {
 	}
 }
 
-inline void AR_EXP_Free(AR_ExpNode *root) {
+void AR_EXP_Free(AR_ExpNode *root) {
 	if(root->type == AR_EXP_OP) {
 		_AR_EXP_FreeOpInternals(root);
 	} else if(root->operand.type == AR_EXP_CONSTANT) {

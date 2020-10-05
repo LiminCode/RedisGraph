@@ -249,7 +249,7 @@ void QueryCtx_ForceUnlockCommit() {
 	_QueryCtx_ThreadSafeContextUnlock(ctx);
 }
 
-inline bool QueryCtx_EncounteredError(void) {
+bool QueryCtx_EncounteredError(void) {
 	QueryCtx *ctx = _QueryCtx_GetCtx();
 	return ctx->internal_exec_ctx.error != NULL;
 }

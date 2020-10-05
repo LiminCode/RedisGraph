@@ -17,12 +17,12 @@ static inline EdgeCreateCtx _NewEdgeCreateCtx(GraphContext *gc, const QGEdge *e,
 											  const cypher_astnode_t *edge) {
 	const cypher_astnode_t *props = cypher_ast_rel_pattern_get_properties(edge);
 
-	EdgeCreateCtx new_edge = {	.alias = e->alias,
-		                        .relation = e->reltypes[0],
-								.reltypeId = e->reltypeIDs[0],
-								.properties = PropertyMap_New(gc, props),
+	EdgeCreateCtx new_edge = {	.reltypeId = e->reltypeIDs[0],
 								.src = e->src->alias,
-								.dest = e->dest->alias
+								.dest = e->dest->alias,
+                                .alias = e->alias,
+		                        .relation = e->reltypes[0],
+								.properties = PropertyMap_New(gc, props),
 							 };
 	return new_edge;
 }
@@ -31,9 +31,9 @@ static inline NodeCreateCtx _NewNodeCreateCtx(GraphContext *gc, const QGNode *n,
 											  const cypher_astnode_t *ast_node) {
 	const cypher_astnode_t *ast_props = cypher_ast_node_pattern_get_properties(ast_node);
 
-	NodeCreateCtx new_node = {  .alias = n->alias,
+	NodeCreateCtx new_node = {  .labelId = n->labelID,
+                                .alias = n->alias,
 		                        .label = n->label,
-								.labelId = n->labelID,
 								.properties = PropertyMap_New(gc, ast_props)
 							 };
 

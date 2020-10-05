@@ -6,18 +6,18 @@
 
 #include "gtest.h"
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+//#ifdef __cplusplus
+//extern "C" {
+//#endif
 
 #include "../../src/util/arr.h"
 #include "../../src/util/rmalloc.h"
 #include "../../src/graph/query_graph.h"
 #include "../../src/algorithms/algorithms.h"
 
-#ifdef __cplusplus
-}
-#endif
+//#ifdef __cplusplus
+//}
+//#endif
 
 class DFSTest: public ::testing::Test {
 

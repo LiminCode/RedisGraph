@@ -6,9 +6,9 @@
 
 #include "gtest.h"
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+//#ifdef __cplusplus
+//extern "C" {
+//#endif
 
 #include "../../src/value.h"
 #include "../../src/util/rmalloc.h"
@@ -18,9 +18,9 @@ extern "C" {
 #include "../../src/graph/entities/edge.h"
 
 
-#ifdef __cplusplus
-}
-#endif
+//#ifdef __cplusplus
+//}
+//#endif
 
 class ValueTest: public ::testing::Test {
   protected:

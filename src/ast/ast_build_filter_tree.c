@@ -77,8 +77,8 @@ FT_FilterNode *_CreateFilterSubtree(AST_Operator op, const cypher_astnode_t *lhs
 /* WHERE (condition) AND (condition),
  * WHERE a.val = b.val */
 static FT_FilterNode *_convertBinaryOperator(const cypher_astnode_t *op_node) {
-	const cypher_operator_t *operator = cypher_ast_binary_operator_get_operator(op_node);
-	AST_Operator op = AST_ConvertOperatorNode(operator);
+	const cypher_operator_t *operator1 = cypher_ast_binary_operator_get_operator(op_node);
+	AST_Operator op = AST_ConvertOperatorNode(operator1);
 	const cypher_astnode_t *lhs;
 	const cypher_astnode_t *rhs;
 
@@ -102,10 +102,10 @@ static FT_FilterNode *_convertBinaryOperator(const cypher_astnode_t *op_node) {
 }
 
 static FT_FilterNode *_convertUnaryOperator(const cypher_astnode_t *op_node) {
-	const cypher_operator_t *operator = cypher_ast_unary_operator_get_operator(op_node);
+	const cypher_operator_t *operator1 = cypher_ast_unary_operator_get_operator(op_node);
 	// Argument is of type CYPHER_AST_EXPRESSION
 	const cypher_astnode_t *arg = cypher_ast_unary_operator_get_argument(op_node);
-	AST_Operator op = AST_ConvertOperatorNode(operator);
+	AST_Operator op = AST_ConvertOperatorNode(operator1);
 	switch(op) {
 	case OP_IS_NULL:
 	case OP_IS_NOT_NULL:
@@ -135,7 +135,7 @@ static FT_FilterNode *_convertIntegerOperator(const cypher_astnode_t *expr) {
 }
 
 /* A comparison node contains two arrays - one of operators, and one of expressions.
- * Most comparisons will only have one operator and two expressions, but Cypher
+ * Most comparisons will only have one operator1 and two expressions, but Cypher
  * allows more complex formulations like "x < y <= z".
  * A comparison takes a form such as "WHERE a.val < y.val". */
 static FT_FilterNode *_convertComparison(const cypher_astnode_t *comparison_node) {
@@ -145,11 +145,11 @@ static FT_FilterNode *_convertComparison(const cypher_astnode_t *comparison_node
 
 	// Create and accumulate simple predicates x < y.
 	for(int i = 0; i < nelems; i++) {
-		const cypher_operator_t *operator = cypher_ast_comparison_get_operator(comparison_node, i);
+		const cypher_operator_t *operator1 = cypher_ast_comparison_get_operator(comparison_node, i);
 		const cypher_astnode_t *lhs = cypher_ast_comparison_get_argument(comparison_node, i);
 		const cypher_astnode_t *rhs = cypher_ast_comparison_get_argument(comparison_node, i + 1);
 
-		AST_Operator op = AST_ConvertOperatorNode(operator);
+		AST_Operator op = AST_ConvertOperatorNode(operator1);
 		FT_FilterNode *filter = _CreatePredicateFilterNode(op, lhs, rhs);
 		filters = array_append(filters, filter);
 	}

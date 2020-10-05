@@ -6,9 +6,9 @@
 
 #include "gtest.h"
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+//#ifdef __cplusplus
+//extern "C" {
+//#endif
 
 #include <stdio.h>
 #include <string.h>
@@ -20,9 +20,9 @@ extern "C" {
 #include "../../src/ast/ast_build_filter_tree.h"
 #include "../../src/arithmetic/funcs.h"
 
-#ifdef __cplusplus
-}
-#endif
+//#ifdef __cplusplus
+//}
+//#endif
 
 class FilterTreeTest: public ::testing::Test {
   protected:

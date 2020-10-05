@@ -166,7 +166,7 @@ bool AST_ReadOnly(const cypher_astnode_t *root) {
 	return true;
 }
 
-inline bool AST_ContainsClause(const AST *ast, cypher_astnode_type_t clause) {
+bool AST_ContainsClause(const AST *ast, cypher_astnode_type_t clause) {
 	return AST_GetClause(ast, clause) != NULL;
 }
 
@@ -361,13 +361,13 @@ AST *AST_ShallowCopy(AST *orig) {
 	return orig;
 }
 
-inline bool AST_AliasIsReferenced(AST *ast, const char *alias) {
+bool AST_AliasIsReferenced(AST *ast, const char *alias) {
 	return (raxFind(ast->referenced_entities, (unsigned char *)alias, strlen(alias)) != raxNotFound);
 }
 
 // TODO Consider augmenting libcypher-parser so that we don't need to perform this
 // work in-module.
-inline long AST_ParseIntegerNode(const cypher_astnode_t *int_node) {
+long AST_ParseIntegerNode(const cypher_astnode_t *int_node) {
 	assert(int_node);
 
 	const char *value_str = cypher_ast_integer_get_valuestr(int_node);
@@ -494,7 +494,7 @@ int TraverseRecordCap(const AST *ast) {
 	return MIN(AST_GetLimit(ast), 16);  // Use 16 as the default value.
 }
 
-inline AST_AnnotationCtxCollection *AST_GetAnnotationCtxCollection(AST *ast) {
+AST_AnnotationCtxCollection *AST_GetAnnotationCtxCollection(AST *ast) {
 	return ast->anot_ctx_collection;
 }
 
@@ -529,7 +529,7 @@ void AST_Free(AST *ast) {
 
 }
 
-inline AR_ExpNode *AST_GetLimitExpr(const AST *ast) {
+AR_ExpNode *AST_GetLimitExpr(const AST *ast) {
 	return ast->limit;
 }
 
@@ -543,7 +543,7 @@ uint64_t AST_GetLimit(const AST *ast) {
 	return limit_value.longval;
 }
 
-inline AR_ExpNode *AST_GetSkipExpr(const AST *ast) {
+AR_ExpNode *AST_GetSkipExpr(const AST *ast) {
 	return ast->skip;
 }
 

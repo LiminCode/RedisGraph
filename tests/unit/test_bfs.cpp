@@ -6,9 +6,9 @@
 
 #include "gtest.h"
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+//#ifdef __cplusplus
+//extern "C" {
+//#endif
 
 #include "../../src/util/arr.h"
 #include "../../src/util/rmalloc.h"
@@ -17,9 +17,9 @@ extern "C" {
 #include "../../src/graph/entities/qg_edge.h"
 #include "../../src/algorithms/algorithms.h"
 
-#ifdef __cplusplus
-}
-#endif
+//#ifdef __cplusplus
+//}
+//#endif
 
 class BFSTest: public ::testing::Test {
   public:

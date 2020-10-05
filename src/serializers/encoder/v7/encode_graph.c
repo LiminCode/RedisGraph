@@ -110,7 +110,7 @@ static PayloadInfo *_RdbSaveKeySchema(RedisModuleIO *rdb, GraphContext *gc) {
 			if(!last_key) remaining_entities -= current_state_payload_info.entities_count;
 			if(remaining_entities > 0) {
 				offset = 0; // New state offset is 0.
-				current_state++; // Advance in the states.
+				current_state = current_state + 1; // Advance in the states.
 			}
 		}
 	}

@@ -6,16 +6,16 @@
 
 #include "gtest.h"
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+//#ifdef __cplusplus
+//extern "C" {
+//#endif
 
 #include "../../deps/GraphBLAS/Include/GraphBLAS.h"
 #include "../../src/util/rmalloc.h"
 
-#ifdef __cplusplus
-}
-#endif
+//#ifdef __cplusplus
+//}
+//#endif
 
 class TuplesTest: public ::testing::Test {
   protected:

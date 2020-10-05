@@ -42,7 +42,7 @@ void OpBase_Init(OpBase *op, OPType type, const char *name, fpInit init, fpConsu
 	op->profile = NULL;
 }
 
-inline Record OpBase_Consume(OpBase *op) {
+Record OpBase_Consume(OpBase *op) {
 	return op->consume(op);
 }
 
@@ -138,7 +138,7 @@ void OpBase_UpdateConsume(OpBase *op, fpConsume consume) {
 	else op->consume = consume;
 }
 
-inline Record OpBase_CreateRecord(const OpBase *op) {
+Record OpBase_CreateRecord(const OpBase *op) {
 	return ExecutionPlan_BorrowRecord((struct ExecutionPlan *)op->plan);
 }
 
@@ -148,7 +148,7 @@ Record OpBase_CloneRecord(Record r) {
 	return clone;
 }
 
-inline void OpBase_DeleteRecord(Record r) {
+void OpBase_DeleteRecord(Record r) {
 	ExecutionPlan_ReturnRecord(r->owner, r);
 }
 

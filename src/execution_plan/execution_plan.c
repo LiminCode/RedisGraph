@@ -19,7 +19,7 @@
 #include <setjmp.h>
 
 // Allocate a new ExecutionPlan segment.
-inline ExecutionPlan *ExecutionPlan_NewEmptyExecutionPlan(void) {
+ExecutionPlan *ExecutionPlan_NewEmptyExecutionPlan(void) {
 	ExecutionPlan *plan = rm_calloc(1, sizeof(ExecutionPlan));
 	return plan;
 }
@@ -222,12 +222,12 @@ ExecutionPlan *NewExecutionPlan(void) {
 }
 
 // Sets an AST segment in the execution plan.
-inline void ExecutionPlan_SetAST(ExecutionPlan *plan, AST *ast) {
+void ExecutionPlan_SetAST(ExecutionPlan *plan, AST *ast) {
 	plan->ast_segment = ast;
 }
 
 // Gets the AST segment from the execution plan.
-inline AST *ExecutionPlan_GetAST(const ExecutionPlan *plan) {
+AST *ExecutionPlan_GetAST(const ExecutionPlan *plan) {
 	return plan->ast_segment;
 }
 
@@ -239,7 +239,7 @@ void ExecutionPlan_PreparePlan(ExecutionPlan *plan) {
 	plan->prepared = true;
 }
 
-inline rax *ExecutionPlan_GetMappings(const ExecutionPlan *plan) {
+rax *ExecutionPlan_GetMappings(const ExecutionPlan *plan) {
 	assert(plan && plan->record_map);
 	return plan->record_map;
 }

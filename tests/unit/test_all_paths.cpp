@@ -6,20 +6,20 @@
 
 #include "gtest.h"
 
-#ifdef __cplusplus
-extern "C"
-{
-#endif
+//#ifdef __cplusplus
+//extern "C"
+//{
+//#endif
 
 #include "../../src/config.h"
 #include "../../src/util/rmalloc.h"
 #include "../../src/algorithms/algorithms.h"
 
-#ifdef __cplusplus
-}
-#endif
+//#ifdef __cplusplus
+//}
+//#endif
 
-RG_Config config; // Global module configuration
+extern RG_Config config; // Global module configuration
 
 class AllPathsTest : public ::testing::Test {
   protected:

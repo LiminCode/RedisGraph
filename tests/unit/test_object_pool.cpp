@@ -6,18 +6,18 @@
 
 #include "gtest.h"
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+//#ifdef __cplusplus
+//extern "C" {
+//#endif
 
 #include <stdio.h>
 #include "../../src/util/arr.h"
 #include "../../src/util/rmalloc.h"
 #include "../../src/util/object_pool/object_pool.h"
 
-#ifdef __cplusplus
-}
-#endif
+//#ifdef __cplusplus
+//}
+//#endif
 
 class ObjectPoolTest: public ::testing::Test {
   protected:

@@ -85,8 +85,8 @@ int RedisModule_OnLoad(RedisModuleCtx *ctx, RedisModuleString **argv, int argc) 
 		RedisModule_Log(ctx, "warning", "Encountered error initializing GraphBLAS: '%s'", GrB_error());
 		return REDISMODULE_ERR;
 	}
-	GxB_set(GxB_FORMAT, GxB_BY_ROW); // all matrices in CSR format
-	GxB_set(GxB_HYPER, GxB_NEVER_HYPER); // matrices are never hypersparse
+	GxB_Global_Option_set(GxB_FORMAT, GxB_BY_ROW); // all matrices in CSR format
+	GxB_Global_Option_set(GxB_HYPER, GxB_NEVER_HYPER); // matrices are never hypersparse
 
 	if(RedisModule_Init(ctx, "graph", REDISGRAPH_MODULE_VERSION,
 						REDISMODULE_APIVER_1) == REDISMODULE_ERR) {
@@ -129,7 +129,7 @@ int RedisModule_OnLoad(RedisModuleCtx *ctx, RedisModuleString **argv, int argc) 
 	command_ctxs = calloc(threadCount + 1, sizeof(CommandCtx*));
 
 	int ompThreadCount = Config_GetOMPThreadCount();
-	if(GxB_set(GxB_NTHREADS, ompThreadCount) != GrB_SUCCESS) {
+	if(GxB_Global_Option_set(GxB_NTHREADS, ompThreadCount) != GrB_SUCCESS) {
 		RedisModule_Log(ctx, "warning", "Failed to set OpenMP thread count to %d", ompThreadCount);
 		return REDISMODULE_ERR;
 	}

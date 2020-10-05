@@ -6,18 +6,18 @@
 
 #include "gtest.h"
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+//#ifdef __cplusplus
+//extern "C" {
+//#endif
 #include "../../src/ast/ast.h"
 #include "../../src/util/arr.h"
 #include "../../src/query_ctx.h"
 #include "../../src/util/rmalloc.h"
 #include "../../src/graph/query_graph.h"
 #include "../../src/graph/graphcontext.h"
-#ifdef __cplusplus
-}
-#endif
+//#ifdef __cplusplus
+//}
+//#endif
 
 class QueryGraphTest: public ::testing::Test {
   protected:

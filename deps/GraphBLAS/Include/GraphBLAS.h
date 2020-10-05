@@ -41,6 +41,11 @@
 #ifndef GRAPHBLAS_H
 #define GRAPHBLAS_H
 
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+
 //------------------------------------------------------------------------------
 // compiler variations
 //------------------------------------------------------------------------------
@@ -7132,6 +7137,10 @@ GrB_Info GxB_Vector_export  // export and free a vector
 // by column, if desired.  If the formats do not match, SuiteSparse:GraphBLAS
 // first reformats the GrB_Matrix A into the desired format, and then exports
 // the result.
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif
 

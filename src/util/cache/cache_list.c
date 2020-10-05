@@ -19,7 +19,7 @@ CacheList *CacheList_New(uint size, CacheItemFreeFunc freeCB) {
 	return list;
 }
 
-inline bool CacheList_IsFull(const CacheList *list) {
+bool CacheList_IsFull(const CacheList *list) {
 	return list->buffer_len == list->buffer_cap;
 }
 
